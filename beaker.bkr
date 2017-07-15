@@ -1,0 +1,214 @@
+{
+    "beaker": "2",
+    "evaluators": [
+        {
+            "name": "HTML",
+            "plugin": "HTML",
+            "view": {
+                "cm": {
+                    "mode": "smartHTMLMode"
+                }
+            }
+        },
+        {
+            "name": "JavaScript",
+            "plugin": "JavaScript",
+            "view": {
+                "cm": {
+                    "mode": "javascript",
+                    "background": "#FFE0F0"
+                }
+            },
+            "languageVersion": "ES2015"
+        },
+        {
+            "name": "IPython",
+            "plugin": "IPython",
+            "setup": "%matplotlib inline\nimport numpy\nimport matplotlib\nfrom matplotlib import pylab, mlab, pyplot\nnp = numpy\nplt = pyplot\nfrom IPython.display import display\nfrom IPython.core.pylabtools import figsize, getfigs\nfrom pylab import *\nfrom numpy import *\n",
+            "view": {
+                "cm": {
+                    "mode": "python"
+                }
+            }
+        }
+    ],
+    "cells": [
+        {
+            "id": "markdownOBPnJI",
+            "type": "markdown",
+            "body": [
+                "# Beaker notebook tutorial",
+                "Notebooks have become a popular way of representation of analytical and academic work that includes code chunks. Probably the most popular Notebook representation is Jupyter Notebooks (previously known as IPYthon Notebooks). Most of the teaching materials in my GitHub profile are provided in those Notebook. However, there are some other alternatives that one may need to consider. While I personally find Jupyter Notebook best among all (for both Python and R), Zeppelin Notebook is considered a popular alternative. The main big advantage it has over Jupyter is its integration with Big Data ecosystem tollsets like Spark and Hadoop (Zeppelin is provided by Apache). Anoth alternative is Beaker Notebooks, which were used for creating this document. The main big advantage that the latter has over the 2 notebooks I mentioned about, is that it supports multilanguage coding in one single document. For example, one may write a Python code in one section, continue with R in the other and finish with JavaScript. This is of coursevery handy when one making a presentation that includes comparison between different programming langugages (or tutorials, e.g. accessing API trough different languages).",
+                "",
+                "Beaker Notebooks can be downloaded from their [official website](http://beakernotebook.com/). The installation is pretty straightforward, well, actually no installation is necessary. Just unpack the downloaded archive and run the **beaker.command.bat** file. It will automatically open the command peompt, connect to localhost and open the Notebook in your default browser. Once it is done, you may start a new notebook from scratch or using built-in demos.  The language of coding can be chosen from the upper left corner of each section (assuming it was already installed by the user).",
+                "",
+                "This notebook uses only Python to get a simple stock data from Google Finance and show it. It can be easily seen, that unlike Jupyter, Beaker is directly providing a user friendly datatable with sorting, selecting, searching and filtering options."
+            ],
+            "evaluatorReader": false
+        },
+        {
+            "id": "coderFDWCF",
+            "type": "code",
+            "evaluator": "IPython",
+            "input": {
+                "body": [
+                    "import pandas_datareader as web",
+                    "data = web.DataReader(\"IBM\",\"google\")",
+                    "data.head()"
+                ]
+            },
+            "output": {
+                "state": {
+                    "datatablestate": {
+                        "pagination": {
+                            "use": true,
+                            "rowsToDisplay": 25,
+                            "fixLeft": 0,
+                            "fixRight": 0
+                        },
+                        "columnNames": [
+                            "Open",
+                            "High",
+                            "Low",
+                            "Close",
+                            "Volume"
+                        ],
+                        "actualtype": [
+                            "4.4",
+                            "4.4",
+                            "4.4",
+                            "4.4",
+                            "4.4"
+                        ],
+                        "actualalign": [
+                            "R",
+                            "R",
+                            "R",
+                            "R",
+                            "R"
+                        ],
+                        "colorder": [
+                            0,
+                            1,
+                            2,
+                            3,
+                            4,
+                            5
+                        ],
+                        "getCellSho": [
+                            true,
+                            true,
+                            true,
+                            true,
+                            true
+                        ],
+                        "barsOnColumn": {},
+                        "cellHighlightersData": [],
+                        "tableFilter": "",
+                        "showFilter": false,
+                        "columnSearchActive": false,
+                        "columnFilter": [],
+                        "columnWidth": [],
+                        "tableOrder": [
+                            [
+                                5,
+                                "desc"
+                            ]
+                        ],
+                        "formatForTimes": {},
+                        "stringFormatForType": {},
+                        "stringFormatForColumn": {},
+                        "tooltips": []
+                    }
+                },
+                "result": {
+                    "columnNames": [
+                        "Index",
+                        "Open",
+                        "High",
+                        "Low",
+                        "Close",
+                        "Volume"
+                    ],
+                    "subtype": "TableDisplay",
+                    "values": [
+                        [
+                            {
+                                "timestamp": 1262548800000,
+                                "type": "Date"
+                            },
+                            131.18,
+                            132.97,
+                            130.85,
+                            132.45,
+                            6155846
+                        ],
+                        [
+                            {
+                                "timestamp": 1262635200000,
+                                "type": "Date"
+                            },
+                            131.68,
+                            131.85,
+                            130.1,
+                            130.85,
+                            6842471
+                        ],
+                        [
+                            {
+                                "timestamp": 1262721600000,
+                                "type": "Date"
+                            },
+                            130.68,
+                            131.49,
+                            129.81,
+                            130,
+                            5605290
+                        ],
+                        [
+                            {
+                                "timestamp": 1262808000000,
+                                "type": "Date"
+                            },
+                            129.87,
+                            130.25,
+                            128.91,
+                            129.55,
+                            5840569
+                        ],
+                        [
+                            {
+                                "timestamp": 1262894400000,
+                                "type": "Date"
+                            },
+                            129.07,
+                            130.92,
+                            129.05,
+                            130.85,
+                            4197105
+                        ]
+                    ],
+                    "hasIndex": "true",
+                    "type": "TableDisplay",
+                    "types": [
+                        "datetime",
+                        "double",
+                        "double",
+                        "double",
+                        "double",
+                        "double"
+                    ]
+                },
+                "selectedType": "Table",
+                "pluginName": "IPython",
+                "shellId": "BEB54B7A8BCB4ED39728CB37A7E42762",
+                "elapsedTime": 3130,
+                "height": 210
+            },
+            "evaluatorReader": true,
+            "lineCount": 3,
+            "isError": false
+        }
+    ],
+    "namespace": {}
+}
